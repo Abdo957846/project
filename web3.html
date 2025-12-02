@@ -1,0 +1,240 @@
+<html lang="ar" dir="rtl" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="shortcut icon" href="https://financial-programmer.net/_next/static/media/website.5fd59a84.svg" type="image/x-icon">
+    <style>
+
+ body {
+        /* صورة خلفية */
+background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4');
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+ }
+ .dark-mode-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dark-mode-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.dark-mode-icon {
+    font-size: 16px;
+}
+
+body.dark-mode .dark-mode-btn {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+  header {
+            background: linear-gradient(135deg, #2c3e50, #75aacd);
+            color: rgb(255, 255, 255);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+   header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+    animation: headerEntrance 1.2s ease-out;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shine 3s infinite;
+}
+
+.header-content {
+    animation: textPopIn 1s ease-out 0.5s both;
+}
+
+@keyframes headerEntrance {
+    0% {
+        transform: translateY(-100%) scaleY(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0) scaleY(1.1);
+    }
+    100% {
+        transform: translateY(0) scaleY(1);
+        opacity: 1;
+    }
+}
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes textPopIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+ .service-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .service-card p {
+            color: #7f8c8d;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+
+.contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #1272a2;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+
+
+
+    </style>
+</head>
+
+
+<body>
+     <header>
+        <h1>Our Service</h1>
+        <p>.This site is under development</p>
+       <!-- الزر في الـ Header -->
+<button id="darkModeToggle" class="dark-mode-btn">
+    <span class="dark-mode-icon">🌙</span>
+    الوضع الداكن
+</button>
+    </header>
+
+    <section id="services">
+            <h2 style="text-align: center; margin-bottom: 20px; color: #2c3e50;">خدماتنا</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>تصميم المواقع</h3>
+                    <p>نقدم خدمات تصميم مواقع ويب احترافية وجذابة تناسب جميع الأجهزة.</p>
+                </div>
+                <div class="service-card">
+                    <h3>تطوير التطبيقات</h3>
+                    <p>نطور تطبيقات ويب وتطبيقات جوال باستخدام أحدث التقنيات.</p>
+                </div>
+                <div class="service-card">
+                    <h3>التسويق الإلكتروني</h3>
+                    <p>نساعدك في الترويج لمنتجاتك وخدماتك عبر الإنترنت.</p>
+                </div>
+            </div>
+        </section>
+
+
+</body>
+
+<script>
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+
+// التحقق من التفضيل المحفوظ
+if (localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('dark-mode');
+    updateButtonText();
+}
+
+// إضافة حدث النقر على الزر
+darkModeToggle.addEventListener('click', function() {
+    body.classList.toggle('dark-mode');
+    
+    // حفظ التفضيل في localStorage
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+    }
+    
+    updateButtonText();
+});
+
+// دالة لتحديث نص الزر
+function updateButtonText() {
+    const icon = darkModeToggle.querySelector('.dark-mode-icon');
+    if (body.classList.contains('dark-mode')) {
+        darkModeToggle.innerHTML = '<span class="dark-mode-icon">☀️</span> الوضع الفاتح';
+    } else {
+        darkModeToggle.innerHTML = '<span class="dark-mode-icon">🌙</span> الوضع الداكن';
+    }
+}
+    </script>
+</html>

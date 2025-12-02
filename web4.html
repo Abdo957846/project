@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="shortcut icon" href="https://financial-programmer.net/_next/static/media/website.5fd59a84.svg" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - الأنيميشن</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* إعدادات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    direction: rtl;
+}
+
+/* النجوم المتحركة في الخلفية */
+.stars, .twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: #000 url('https://i.imgur.com/YKY28eT.png') repeat top center;
+    z-index: -3;
+}
+
+.twinkling {
+    background: transparent url('https://i.imgur.com/XYMF4ca.png') repeat top center;
+    z-index: -2;
+    animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+/* الكواكب المتحركة */
+.planet {
+    position: fixed;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.planet1 {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at 30% 30%, #ff9a00, #ff5e00);
+    top: 10%;
+    left: 10%;
+    animation: float 25s infinite ease-in-out;
+    box-shadow: 0 0 50px rgba(255, 94, 0, 0.5);
+}
+
+.planet2 {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%, #00b4ff, #0088ff);
+    bottom: 15%;
+    right: 10%;
+    animation: float 20s infinite ease-in-out reverse;
+    box-shadow: 0 0 40px rgba(0, 136, 255, 0.5);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(10deg); }
+}
+
+/* الشعار المتحرك */
+.logo-container {
+    text-align: center;
+    padding: 30px 0;
+    animation: fadeInDown 1s ease-out;
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    position: relative;
+    box-shadow: 
+        0 0 60px rgba(255, 255, 255, 0.3),
+        0 0 100px rgba(0, 194, 255, 0.2),
+        inset 0 -8px 16px rgba(0, 0, 0, 0.2);
+    animation: moonGlow 3s infinite alternate, rotate 60s infinite linear;
+}
+
+.crescent {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #0f2027, #203a43);
+    border-radius: 50%;
+    top: 15px;
+    right: 5px;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.crater {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+.crater1 {
+    width: 25px;
+    height: 25px;
+    top: 30px;
+    left: 30px;
+}
+
+.crater2 {
+    width: 15px;
+    height: 15px;
+    bottom: 40px;
+    left: 50px;
+}
+
+.crater3 {
+    width: 20px;
+    height: 20px;
+    bottom: 30px;
+    right: 40px;
+}
+
+@keyframes moonGlow {
+    0% { 
+        box-shadow: 
+            0 0 50px rgba(255, 255, 255, 0.2),
+            0 0 80px rgba(0, 194, 255, 0.15);
+    }
+    100% { 
+        box-shadow: 
+            0 0 70px rgba(255, 255, 255, 0.4),
+            0 0 120px rgba(0, 194, 255, 0.3);
+    }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.l.logo-text {
+    font-size: 2.5rem;
+    background: linear-gradient(to right, #fff, #a5d8ff);
+    /* إضافة جميع البادئات للتوافقية */
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    color: transparent; /* نسخة احتياطية */
+    animation: textGlow 2s infinite alternate;
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 10px rgba(165, 216, 255, 0.5); }
+    to { text-shadow: 0 0 20px rgba(165, 216, 255, 0.8), 0 0 30px rgba(0, 194, 255, 0.4); }
+}
+
+/* الحاوية الرئيسية */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 20px;
+}
+
+/* بطاقة تسجيل الدخول */
+.login-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.2),
+        0 0 50px rgba(0, 194, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: cardAppear 1s ease-out;
+}
+
+@keyframes cardAppear {
+    from { 
+        opacity: 0; 
+        transform: translateY(50px) scale(0.9); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
+
+/* حقول الإدخال */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+    animation: slideInRight 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 18px 50px 18px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #fff;
+    transition: all 0.3s;
+    font-family: 'Cairo', sans-serif;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #00c2ff;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(0, 194, 255, 0.3);
+}
+
+.input-group input:focus + .focus-line {
+    width: 100%;
+}
+
+.focus-line {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #00c2ff);
+    transition: width 0.4s;
+}
+
+.password-toggle {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s;
+}
+
+.password-toggle:hover {
+    color: #00c2ff;
+}
+
+/* الخيارات */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.5s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.remember input {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    margin-left: 8px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.remember input:checked + .checkmark {
+    background: #00c2ff;
+    border-color: #00c2ff;
+}
+
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.remember input:checked + .checkmark:after {
+    display: block;
+}
+
+.forgot-password {
+    color: #00c2ff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* زر تسجيل الدخول */
+.login-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #00c2ff, #0080ff);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    margin-bottom: 25px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 194, 255, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 194, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 194, 255, 0); }
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 194, 255, 0.4);
+}
+
+.login-btn:active {
+    transform: translateY(-1px);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    z-index: 2;
+    animation: rocketMove 3s infinite;
+}
+
+@keyframes rocketMove {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(-5px); }
+}
+
+.btn-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+}
+
+.login-btn:hover .btn-wave {
+    animation: wave 1s;
+}
+
+@keyframes wave {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* الخط الفاصل */
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.divider span {
+    padding: 0 15px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+/* تسجيل الدخول عبر وسائل التواصل */
+.social-login {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.social-btn.google:hover {
+    background: linear-gradient(135deg, #ea4335, #fbbc05);
+}
+
+.social-btn.twitter:hover {
+    background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+}
+
+/* رابط التسجيل */
+.register-link {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+.register-link a {
+    color: #00c2ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.register-link a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* تأثيرات القمر */
+.moon-beams {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.beam {
+    position: absolute;
+    background: linear-gradient(transparent, rgba(0, 194, 255, 0.1), transparent);
+    width: 2px;
+    animation: beamMove 15s infinite linear;
+}
+
+.beam1 {
+    height: 100px;
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.beam2 {
+    height: 150px;
+    top: 60%;
+    left: 70%;
+    animation-delay: 5s;
+}
+
+.beam3 {
+    height: 80px;
+    top: 40%;
+    left: 50%;
+    animation-delay: 10s;
+}
+
+@keyframes beamMove {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* شريط التحميل */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.loader-circle {
+    width: 80px;
+    height: 80px;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: #00c2ff;
+    animation: spin 1s infinite linear;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.loader-text {
+    color: #00c2ff;
+    font-size: 1.2rem;
+    animation: fadeInOut 1.5s infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* الرسائل العائمة */
+.floating-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: none;
+    align-items: center;
+    gap: 10px;
+    animation: slideInLeft 0.5s ease-out;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.floating-message.success {
+    background: rgba(46, 204, 113, 0.2);
+    border-color: rgba(46, 204, 113, 0.3);
+    color: #2ecc71;
+}
+
+/* الجسيمات المتحركة */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .logo-text {
+        font-size: 2rem;
+    }
+    
+    .card-header h2 {
+        font-size: 1.7rem;
+    }
+    
+    .social-login {
+        flex-direction: column;
+    }
+}
+
+/* تأثيرات الوصول */
+[data-aos] {
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+    </style>
+</head>
+<body>
+    <!-- النجوم المتحركة في الخلفية -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <!-- الكواكب المتحركة -->
+    <div class="planet planet1"></div>
+    <div class="planet planet2"></div>
+    
+    <!-- الشعار المتحرك -->
+    <div class="logo-container">
+        <div class="logo" id="moonLogo">
+            <div class="crescent"></div>
+            <div class="crater crater1"></div>
+            <div class="crater crater2"></div>
+            <div class="crater crater3"></div>
+        </div>
+        <h1 class="logo-text" id="logoText">مرحباً بعودتك</h1>
+    </div>
+    
+    <!-- نموذج تسجيل الدخول -->
+    <div class="container">
+        <div class="login-card">
+            <div class="card-header">
+                <h2><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</h2>
+                <p>أدخل بياناتك للوصول إلى حسابك</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="input-group" data-aos="fade-left">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" id="username" required placeholder="اسم المستخدم أو البريد الإلكتروني">
+                    <div class="focus-line"></div>
+                </div>
+                
+                <div class="input-group" data-aos="fade-left" data-aos-delay="100">
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <input type="password" id="password" required placeholder="كلمة المرور">
+                    <div class="password-toggle">
+                        <i class="fas fa-eye" id="togglePassword"></i>
+                    </div>
+                    <div class="focus-line"></div>
+                </div>
+                
+                <div class="options" data-aos="fade-up">
+                    <label class="remember">
+                        <input type="checkbox" id="remember">
+                        <span class="checkmark"></span>
+                        تذكرني
+                    </label>
+                    <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                </div>
+                
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <span class="btn-text">دخول</span>
+                    <span class="btn-icon">
+                        <i class="fas fa-rocket"></i>
+                    </span>
+                    <div class="btn-wave"></div>
+                </button>
+                
+                <div class="divider" data-aos="zoom-in">
+                    <span>أو</span>
+                </div>
+                
+                <div class="social-login">
+                    <button type="button" class="social-btn google" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button type="button" class="social-btn twitter" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </button>
+                </div>
+                
+                <div class="register-link" data-aos="fade-up">
+                    ليس لديك حساب؟ <a href="#">إنشاء حساب جديد</a>
+                </div>
+            </form>
+            
+            <!-- تأثير الجسيمات المتحركة -->
+            <div class="particles" id="particles"></div>
+        </div>
+        
+        <!-- الرسائل العائمة -->
+        <div class="floating-message success" id="successMsg">
+            <i class="fas fa-check-circle"></i> تم تسجيل الدخول بنجاح!
+        </div>
+    </div>
+    
+    <!-- تأثيرات القمر في الخلفية -->
+    <div class="moon-beams">
+        <div class="beam beam1"></div>
+        <div class="beam beam2"></div>
+        <div class="beam beam3"></div>
+    </div>
+    
+    <!-- شريط التحميل -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+        <div class="loader-text">جاري التحقق...</div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // العناصر
+    const loginForm = document.getElementById('loginForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+    const loginBtn = document.getElementById('loginBtn');
+    const loader = document.getElementById('loader');
+    const successMsg = document.getElementById('successMsg');
+    const moonLogo = document.getElementById('moonLogo');
+    const logoText = document.getElementById('logoText');
+    
+    // إنشاء جسيمات متحركة
+    createParticles();
+    
+    // إضافة تأثيرات ظهور للحقول
+    animateInputs();
+    
+    // تبديل عرض كلمة المرور
+    togglePassword.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+    
+    // تأثير عند التركيز على الحقول
+    const inputs = document.querySelectorAll('.input-group input');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+            animateLabel(this);
+        });
+        
+        input.addEventListener('blur', function() {
+            if (!this.value) {
+                this.parentElement.classList.remove('focused');
+            }
+        });
+    });
+    
+    // تحريك القمر عند التمرير
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        moonLogo.style.transform = `translateY(${rate}px) rotate(${rate * 0.1}deg)`;
+        logoText.style.transform = `translateY(${rate * 0.3}px)`;
+    });
+    
+    // تأثيرات عند تحريك الماوس
+    document.addEventListener('mousemove', function(e) {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        
+        loginForm.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg)`;
+        
+        // تأثير البارالاكس للكواكب
+        document.querySelector('.planet1').style.transform = 
+            `translate(${x * 0.5}px, ${y * 0.5}px)`;
+        document.querySelector('.planet2').style.transform = 
+            `translate(${-x * 0.3}px, ${-y * 0.3}px)`;
+    });
+    
+    // إرسال النموذج
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // التحقق من الحقول
+        if (!usernameInput.value || !passwordInput.value) {
+            shakeForm();
+            return;
+        }
+        
+        // عرض شريط التحميل
+        showLoader();
+        
+        // محاكاة عملية تسجيل الدخول
+        setTimeout(function() {
+            hideLoader();
+            showSuccessMessage();
+            
+            // تحريك القمر عند نجاح التسجيل
+            animateMoonSuccess();
+            
+            // تحويل الزر إلى حالة النجاح
+            loginBtn.innerHTML = `
+                <i class="fas fa-check"></i>
+                <span>تم الدخول بنجاح!</span>
+            `;
+            loginBtn.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
+            loginBtn.disabled = true;
+            
+            // توجيه المستخدم بعد 2 ثانية
+            setTimeout(function() {
+                window.location.href = '#';
+            }, 2000);
+            
+        }, 2000);
+    });
+    
+    // زر تسجيل الدخول بالـ Google
+    document.querySelector('.social-btn.google').addEventListener('click', function() {
+        animateButton(this);
+        showLoader();
+        setTimeout(hideLoader, 1500);
+    });
+    
+    // زر تسجيل الدخول بالـ Twitter
+    document.querySelector('.social-btn.twitter').addEventListener('click', function() {
+        animateButton(this);
+        showLoader();
+        setTimeout(hideLoader, 1500);
+    });
+    
+    // وظائف مساعدة
+    function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 30;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = Math.random() * 5 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.background = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.2})`;
+            particle.style.borderRadius = '50%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.left = Math.random() * 100 + '%';
+            
+            // تحريك الجسيمات
+            particle.animate([
+                { transform: 'translateY(0) translateX(0)' },
+                { transform: `translateY(${Math.random() * 100 - 50}px) translateX(${Math.random() * 100 - 50}px)` }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                iterations: Infinity,
+                direction: 'alternate'
+            });
+            
+            particlesContainer.appendChild(particle);
+        }
+    }
+    
+    function animateInputs() {
+        const inputGroups = document.querySelectorAll('.input-group');
+        inputGroups.forEach((group, index) => {
+            setTimeout(() => {
+                group.style.animation = `slideInRight 0.5s ease-out ${index * 0.1}s forwards`;
+            }, 300);
+        });
+    }
+    
+    function animateLabel(input) {
+        const label = input.previousElementSibling;
+        if (label && label.classList.contains('input-label')) {
+            label.style.transform = 'translateY(-20px) scale(0.8)';
+            label.style.color = '#00c2ff';
+        }
+    }
+    
+    function shakeForm() {
+        loginForm.style.animation = 'shake 0.5s';
+        setTimeout(() => {
+            loginForm.style.animation = '';
+        }, 500);
+        
+        // إضافة كلمة Shake للـ CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+                20%, 40%, 60%, 80% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    function showLoader() {
+        loader.style.display = 'flex';
+        loginForm.style.opacity = '0.5';
+        loginForm.style.pointerEvents = 'none';
+    }
+    
+    function hideLoader() {
+        loader.style.display = 'none';
+        loginForm.style.opacity = '1';
+        loginForm.style.pointerEvents = 'auto';
+    }
+    
+    function showSuccessMessage() {
+        successMsg.style.display = 'flex';
+        setTimeout(() => {
+            successMsg.style.animation = 'slideOutRight 0.5s ease-out forwards';
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+                successMsg.style.animation = '';
+            }, 500);
+        }, 3000);
+    }
+    
+    function animateMoonSuccess() {
+        moonLogo.style.animation = 'moonGlow 0.5s, rotate 60s infinite linear, bounce 1s';
+        logoText.style.animation = 'textGlow 2s infinite alternate, colorChange 2s';
+        
+        // إضافة كلمات Bounce و ColorChange للـ CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes bounce {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.2); }
+            }
+            @keyframes colorChange {
+                0% { background: linear-gradient(to right, #fff, #a5d8ff); }
+                50% { background: linear-gradient(to right, #a5d8ff, #00c2ff); }
+                100% { background: linear-gradient(to right, #fff, #a5d8ff); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    function animateButton(button) {
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = '';
+        }, 150);
+    }
+    
+    // تأثيرات إضافية للحقول
+    usernameInput.addEventListener('input', function() {
+        if (this.value.length > 0) {
+            this.parentElement.querySelector('.input-icon').style.color = '#00c2ff';
+        } else {
+            this.parentElement.querySelector('.input-icon').style.color = 'rgba(255, 255, 255, 0.7)';
+        }
+    });
+    
+    passwordInput.addEventListener('input', function() {
+        if (this.value.length > 0) {
+            this.parentElement.querySelector('.input-icon').style.color = '#00c2ff';
+        } else {
+            this.parentElement.querySelector('.input-icon').style.color = 'rgba(255, 255, 255, 0.7)';
+        }
+    });
+    
+    // تأثيرات عند تحميل الصفحة
+    setTimeout(() => {
+        document.body.style.opacity = 1;
+    }, 100);
+});
+</script>
+</html>
